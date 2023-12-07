@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:stop_it/bottomsheet.dart';
 import 'package:stop_it/divider.dart';
 import 'package:stop_it/time/hours.dart';
 import 'package:stop_it/time/minutes.dart';
@@ -108,15 +109,41 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Row(
                     children: [
-                      Text("default"),
+                      Text(
+                        "default",
+                        style: TextStyle(fontSize: 20),
+                      ),
                       SizedBox(
                         width: 5,
                       ),
                       GestureDetector(
                         child: Icon(Icons.arrow_forward_ios),
-                        onTap: () {},
-                      )
+                        onTap: () {
+                          bottomsheets(context);
+                        },
+                      ),
                     ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          divider(),
+          Container(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 35),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Repeat",
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  ),
+                  GestureDetector(
+                    child: Icon(Icons.arrow_forward_ios),
+                    onTap: () {
+                      bottomsheets(context);
+                    },
                   ),
                 ],
               ),
@@ -133,27 +160,27 @@ class _HomePageState extends State<HomePage> {
                     "Snooze duration",
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                   ),
-                  Text("y/n"),
-                ],
-              ),
-            ),
-          ),
-          divider(),
-          Container(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 35),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Repeat",
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  GestureDetector(
+                    child: Icon(Icons.arrow_forward_ios),
+                    onTap: () {
+                      bottomsheets(context);
+                    },
                   ),
-                  Text("y/n"),
                 ],
               ),
             ),
           ),
+          SizedBox(
+            height: 35,
+          ),
+          Center(
+            child: TextButton(
+                onPressed: () {},
+                child: Text(
+                  "DELETE",
+                  style: TextStyle(fontSize: 25),
+                )),
+          )
         ],
       ),
     );
